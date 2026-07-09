@@ -292,7 +292,7 @@ export default function Home() {
           {/* text */}
           <div className="absolute bottom-16 left-10 max-w-xl">
             <h3 className="text-white text-4xl sm:text-5xl tracking-[0.25em] font-semibold">
-              The Fallen Prophet
+              Adon HaKofrim
             </h3>
 
             <p className="mt-4 text-white/80 tracking-[0.35em] uppercase text-sm">
