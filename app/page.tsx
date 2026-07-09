@@ -17,32 +17,32 @@ const fadeUp = {
 
 const blackExodusTracks = [
   {
-    title: "The Fall Of Amon Ra",
+    title: "Alef: The Fall Of Amon Ra",
     description:
       "The first crack in the divine order. A forgotten god falls, leaving only ash and silence.",
   },
   {
-    title: "LevitiKuss",
+    title: "Bet: LevitiKuss",
     description:
       "A ritual beyond scripture. Sacred names twisted into forbidden invocation.",
   },
   {
-    title: "Circles Of Hell",
+    title: "Gimel: Circles Of Hell",
     description:
       "Bound by symbols, fire and blood. No escape once the circle is complete.",
   },
   {
-    title: "Pesach Mass",
+    title: "Dalet: Pesach Mass",
     description:
       "Ancient tradition consumed by darkness, where faith becomes ritual and ritual becomes sacrifice.",
   },
   {
-    title: "The Fifth Gate",
+    title: "Hei: The Fifth Gate",
     description:
       "The final threshold before the abyss. Few reach it. None return unchanged.",
   },
   {
-    title: "The Black Exodus",
+    title: "Vav: The Black Exodus",
     description:
       "The closing chapter. A procession into darkness where there is no promised land.",
   },
