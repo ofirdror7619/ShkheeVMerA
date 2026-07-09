@@ -156,11 +156,15 @@ export default function Home() {
           Latest Release
         </h2>
 
+        <p className="mb-8 text-xl text-white/85 sm:text-2xl">
+          The Black Exodus (Full EP) [2026]
+        </p>
+
         <div className="flex justify-center">
           <div className="w-full max-w-[420px] aspect-[35/42]">
             <iframe
               title="YouTube video: Latest Release"
-              src="https://www.youtube.com/embed/J2ahCFtWksI"
+              src="https://www.youtube.com/embed/xmnMdJfvrKc"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
@@ -229,7 +233,7 @@ export default function Home() {
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {[
-            { id: "g1", src: "/g1.png" },
+            { id: "g1", src: "/The Black Exodus - Album Art.png" },
             { id: "g3", src: "/Logo New.png" },
             { id: "g2", src: "/Logo 3.png" },
           ].map((img) => (
