@@ -99,6 +99,18 @@ export default function Home() {
           variants={fadeUp}
           className="relative z-10 px-4 sm:px-6"
         >
+          <div className="mb-8 space-y-3 text-white drop-shadow-[0_0_18px_rgba(0,0,0,0.9)]">
+            <p className="text-sm uppercase tracking-[0.34em] text-white/75 sm:text-base">
+              Ritualistic Black Metal from Israel
+            </p>
+            <p className="text-xs uppercase tracking-[0.42em] text-red-200/70 sm:text-sm">
+              Occult / Ritual / Darkness
+            </p>
+            <p className="mx-auto max-w-[90vw] text-lg italic text-white/85 sm:text-2xl">
+              &quot;Beyond the Fifth Gate, there is no return.&quot;
+            </p>
+          </div>
+
           <button
             type="button"
             onClick={() =>

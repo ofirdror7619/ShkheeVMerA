@@ -1,8 +1,12 @@
-"use client"
-
-import { ParallaxProvider } from "react-scroll-parallax";
+import type { Metadata } from "next";
 import "./globals.css";
-import GlowCursor from "@/components/GlowCursor";
+import { Providers } from "./providers";
+
+export const metadata: Metadata = {
+  title: "ShkheeV MerA | The Black Exodus | Black Metal",
+  description:
+    "ShkheeV MerA is a solo black metal project from Israel. Listen to the debut EP The Black Exodus.",
+};
 
 export default function RootLayout({
   children,
@@ -12,8 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <GlowCursor />
-        <ParallaxProvider>{children}</ParallaxProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
