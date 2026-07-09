@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Parallax } from "react-scroll-parallax";
 import Navbar from "@/components/Navbar";
 
 const fadeUp = {
@@ -80,13 +81,13 @@ export default function Home() {
   return (
     <main className="bg-black text-gray-400 overflow-x-hidden">
       {/* ================= HERO ================= */}
-      <section className="relative h-screen min-h-[100svh] flex items-center justify-center text-center">
+      <section className="hero-section group relative h-screen min-h-[100svh] flex items-center justify-center text-center">
         <Image
           src="/Logo.png"
           alt="ShkheeV MerA"
           fill
           priority
-          className="hero-img object-contain opacity-100 scale-105 brightness-105"
+          className="hero-img hero-logo object-contain opacity-100 brightness-105"
         />
 
         {/* Dark gradient overlay */}
@@ -116,7 +117,7 @@ export default function Home() {
             onClick={() =>
               document.getElementById("occult")?.scrollIntoView({ behavior: "smooth", block: "start" })
             }
-            className="group relative inline-block mt-6 -translate-y-2.5"
+            className="ritual-breath group relative inline-block mt-6 -translate-y-2.5"
           >
             {/* glow */}
             <span className="absolute inset-0 rounded-md bg-white/10 blur-lg opacity-0 group-hover:opacity-100 transition duration-700" />
@@ -324,22 +325,37 @@ export default function Home() {
             { id: "g1", src: "/The Black Exodus - Album Art.png" },
             { id: "g3", src: "/Logo New.png" },
             { id: "g2", src: "/Logo 3.png" },
-          ].map((img) => (
-            <button
-              type="button"
-              key={img.id}
-              onClick={() => openGalleryImage(img.src)}
-              className="relative h-[260px] overflow-hidden group cursor-pointer sm:h-[320px] lg:h-[420px]"
-              aria-label="Open gallery image"
-            >
-              <Image
-                src={img.src}
-                alt="Band photo"
-                fill
-                className="object-contain bg-black grayscale group-hover:grayscale-0 transition duration-700"
-              />
-            </button>
-          ))}
+          ].map((img) => {
+            const galleryButton = (
+              <button
+                type="button"
+                onClick={() => openGalleryImage(img.src)}
+                className="relative h-[260px] w-full overflow-hidden group cursor-pointer sm:h-[320px] lg:h-[420px]"
+                aria-label="Open gallery image"
+              >
+                <Image
+                  src={img.src}
+                  alt="Band photo"
+                  fill
+                  className="object-contain bg-black grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
+                />
+              </button>
+            );
+
+            if (img.id === "g1") {
+              return (
+                <Parallax key={img.id} speed={-5} easing="easeOutQuad">
+                  {galleryButton}
+                </Parallax>
+              );
+            }
+
+            return (
+              <div key={img.id}>
+                {galleryButton}
+              </div>
+            );
+          })}
         </div>
       </motion.section>
 
