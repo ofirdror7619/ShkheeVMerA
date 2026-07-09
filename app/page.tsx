@@ -292,7 +292,7 @@ export default function Home() {
           {/* text */}
           <div className="absolute bottom-16 left-10 max-w-xl">
             <h3 className="text-white text-4xl sm:text-5xl tracking-[0.25em] font-semibold">
-              Lord OFear
+              The Fallen Prophet
             </h3>
 
             <p className="mt-4 text-white/80 tracking-[0.35em] uppercase text-sm">
@@ -324,7 +324,7 @@ export default function Home() {
           {[
             { id: "g1", src: "/The Black Exodus - Album Art.png" },
             { id: "g3", src: "/Logo New.png" },
-            { id: "g2", src: "/Logo 3.png" },
+            { id: "g2", src: "/LogoHebrew.png" },
           ].map((img) => {
             const galleryButton = (
               <button
