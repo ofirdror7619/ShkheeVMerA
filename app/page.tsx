@@ -324,7 +324,7 @@ export default function Home() {
           {[
             { id: "g1", src: "/The Black Exodus - Album Art.png" },
             { id: "g3", src: "/Logo New.png" },
-            { id: "g2", src: "/LogoHebrew.png" },
+            { id: "g2", src: "/LogoHebrewFinal.png" },
           ].map((img) => {
             const galleryButton = (
               <button
