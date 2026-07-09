@@ -50,6 +50,7 @@ const blackExodusTracks = [
 
 export default function Home() {
   const [activeGalleryImage, setActiveGalleryImage] = useState<string | null>(null);
+  const [swapGalleryLogos, setSwapGalleryLogos] = useState(false);
 
   const openGalleryImage = (img: string) => {
     setActiveGalleryImage(img);
@@ -77,6 +78,20 @@ export default function Home() {
       globalThis.removeEventListener("keydown", handleEscape);
     };
   }, [activeGalleryImage]);
+
+  useEffect(() => {
+    const swapInterval = globalThis.setInterval(() => {
+      setSwapGalleryLogos((current) => !current);
+    }, 10000);
+
+    return () => {
+      globalThis.clearInterval(swapInterval);
+    };
+  }, []);
+
+  const rotatingGalleryLogos = swapGalleryLogos
+    ? ["/LogoHebrewFinal.png", "/Logo New.png"]
+    : ["/Logo New.png", "/LogoHebrewFinal.png"];
 
   return (
     <main className="bg-black text-gray-400 overflow-x-hidden">
@@ -323,8 +338,8 @@ export default function Home() {
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {[
             { id: "g1", src: "/The Black Exodus - Album Art.png" },
-            { id: "g3", src: "/Logo New.png" },
-            { id: "g2", src: "/LogoHebrewFinal.png" },
+            { id: "g3", src: rotatingGalleryLogos[0] },
+            { id: "g2", src: rotatingGalleryLogos[1] },
           ].map((img) => {
             const galleryButton = (
               <button
@@ -334,6 +349,7 @@ export default function Home() {
                 aria-label="Open gallery image"
               >
                 <Image
+                  key={img.src}
                   src={img.src}
                   alt="Band photo"
                   fill
