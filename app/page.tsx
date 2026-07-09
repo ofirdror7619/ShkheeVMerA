@@ -14,14 +14,38 @@ const fadeUp = {
   },
 };
 
-const fadeUp80 = {
-  hidden: { opacity: 0, y: 60 },
-  show: {
-    opacity: 0.8,
-    y: 0,
-    transition: { duration: 0.9, ease: "easeOut" as const },
+const blackExodusTracks = [
+  {
+    title: "The Fall Of Amon Ra",
+    description:
+      "The first crack in the divine order. A forgotten god falls, leaving only ash and silence.",
   },
-};
+  {
+    title: "LevitiKuss",
+    description:
+      "A ritual beyond scripture. Sacred names twisted into forbidden invocation.",
+  },
+  {
+    title: "Circles Of Hell",
+    description:
+      "Bound by symbols, fire and blood. No escape once the circle is complete.",
+  },
+  {
+    title: "Pesach Mass",
+    description:
+      "Ancient tradition consumed by darkness, where faith becomes ritual and ritual becomes sacrifice.",
+  },
+  {
+    title: "The Fifth Gate",
+    description:
+      "The final threshold before the abyss. Few reach it. None return unchanged.",
+  },
+  {
+    title: "The Black Exodus",
+    description:
+      "The closing chapter. A procession into darkness where there is no promised land.",
+  },
+];
 
 export default function Home() {
   const [activeGalleryImage, setActiveGalleryImage] = useState<string | null>(null);
@@ -160,8 +184,8 @@ export default function Home() {
           The Black Exodus (Full EP) [2026]
         </p>
 
-        <div className="flex justify-center">
-          <div className="w-full max-w-[420px] aspect-[35/42]">
+        <div className="mx-auto grid max-w-6xl gap-10 text-left lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:items-start">
+          <div className="mx-auto w-full max-w-[420px] aspect-[35/42]">
             <iframe
               title="YouTube video: Latest Release"
               src="https://www.youtube.com/embed/xmnMdJfvrKc"
@@ -171,6 +195,58 @@ export default function Home() {
               loading="lazy"
               className="w-full h-full rounded-lg shadow-2xl"
             />
+          </div>
+
+          <div className="space-y-8">
+            <section className="border-l border-red-900/60 pl-5">
+              <h3 className="text-2xl font-semibold text-white sm:text-3xl">About the Album</h3>
+              <p className="mt-4 max-w-2xl text-base leading-8 text-white/70 sm:text-lg">
+                The Black Exodus follows a descent from broken divinity into ritual, fire, and
+                exile. Across six chapters, ancient symbols are stripped of comfort and turned
+                into thresholds: gates, circles, invocations, and final processions. It is an
+                occult passage through faith corrupted, gods abandoned, and a promised land that
+                never arrives.
+              </p>
+            </section>
+
+            <div className="grid gap-3 text-center sm:grid-cols-2">
+              <div className="border border-white/10 bg-white/[0.03] px-5 py-4">
+                <p className="text-xs uppercase tracking-[0.3em] text-white/40">Total Runtime</p>
+                <p className="mt-2 text-xl text-white">28:48</p>
+              </div>
+              <div className="border border-white/10 bg-white/[0.03] px-5 py-4">
+                <p className="text-xs uppercase tracking-[0.3em] text-white/40">Genre</p>
+                <p className="mt-2 text-xl text-white">Atmospheric / Occult Black Metal</p>
+              </div>
+            </div>
+
+            <section>
+              <h3 className="text-2xl font-semibold text-white sm:text-3xl">Tracklist</h3>
+              <ol className="mt-5 space-y-3">
+                {blackExodusTracks.map((track, index) => (
+                  <li key={track.title}>
+                    <div
+                      tabIndex={0}
+                      className="group relative border border-white/10 bg-white/[0.03] px-4 py-4 outline-none transition duration-300 hover:border-red-900/70 hover:bg-white/[0.06] focus-visible:border-red-800 focus-visible:bg-white/[0.06]"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="w-7 shrink-0 text-sm text-white/35">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                        <span className="flex h-5 w-4 shrink-0 items-center" aria-hidden="true">
+                          <span className="h-0 w-0 border-y-[5px] border-l-[8px] border-y-transparent border-l-white/80" />
+                        </span>
+                        <span className="text-lg text-white">{track.title}</span>
+                      </div>
+
+                      <p className="mt-3 max-h-0 overflow-hidden text-sm leading-6 text-white/65 opacity-0 transition-all duration-300 group-hover:max-h-24 group-hover:opacity-100 group-focus:max-h-24 group-focus:opacity-100 sm:text-base">
+                        {track.description}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </section>
           </div>
         </div>
       </motion.section>
