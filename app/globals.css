@@ -31,6 +31,16 @@ body {
   animation: ritual-breath 5.5s ease-in-out infinite;
 }
 
+.lord-ofear-image {
+  transform-origin: center 22%;
+  will-change: transform, filter;
+}
+
+.lord-ofear-frame:hover .lord-ofear-image,
+.lord-ofear-frame:focus-within .lord-ofear-image {
+  animation: lord-ofear-scream 2.4s cubic-bezier(0.12, 0.78, 0.2, 1) both;
+}
+
 @keyframes ritual-breath {
   0%, 100% {
     filter: drop-shadow(0 0 0 rgba(125, 18, 18, 0));
@@ -41,13 +51,62 @@ body {
   }
 }
 
+@keyframes lord-ofear-scream {
+  0%, 100% {
+    transform: scale(0.9) translate3d(0, 0, 0) rotate(0deg);
+    filter: grayscale(1) contrast(1.05) brightness(0.95);
+  }
+
+  7% {
+    transform: scale(0.92) translate3d(-8px, 4px, 0) rotate(-0.7deg);
+    filter: grayscale(1) contrast(1.35) brightness(1.14);
+  }
+
+  13% {
+    transform: scale(0.91) translate3d(7px, -5px, 0) rotate(0.6deg);
+    filter: grayscale(1) contrast(1.7) brightness(0.82);
+  }
+
+  20% {
+    transform: scale(0.93) translate3d(-11px, -2px, 0) rotate(0.9deg);
+    filter: grayscale(1) contrast(1.42) brightness(1.2);
+  }
+
+  29% {
+    transform: scale(0.91) translate3d(10px, 5px, 0) rotate(-0.8deg);
+    filter: grayscale(1) contrast(1.85) brightness(0.78);
+  }
+
+  39% {
+    transform: scale(0.92) translate3d(-7px, 6px, 0) rotate(0.5deg);
+    filter: grayscale(1) contrast(1.55) brightness(1.08);
+  }
+
+  50% {
+    transform: scale(0.9) translate3d(6px, -4px, 0) rotate(-0.5deg);
+    filter: grayscale(1) contrast(1.28) brightness(0.92);
+  }
+
+  64% {
+    transform: scale(0.91) translate3d(-4px, 2px, 0) rotate(0.3deg);
+    filter: grayscale(1) contrast(1.2) brightness(1.02);
+  }
+
+  78% {
+    transform: scale(0.9) translate3d(3px, -1px, 0) rotate(-0.2deg);
+    filter: grayscale(1) contrast(1.12) brightness(0.98);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
   .hero-logo,
-  .ritual-breath {
+  .ritual-breath,
+  .lord-ofear-frame:hover .lord-ofear-image,
+  .lord-ofear-frame:focus-within .lord-ofear-image {
     animation: none;
     transition: none;
   }

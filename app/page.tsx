@@ -278,12 +278,12 @@ export default function Home() {
           Emissaries of Death
         </h2>
 
-        <div className="relative mx-auto max-w-5xl h-[520px] sm:h-[620px] overflow-hidden bg-black">
+        <div className="lord-ofear-frame relative mx-auto max-w-5xl h-[520px] sm:h-[620px] overflow-hidden bg-black">
           <Image
             src="/me1.png"
             alt="Emissary of Death"
             fill
-            className="object-cover object-[50%_20%] scale-90 grayscale contrast-105 brightness-95"
+            className="lord-ofear-image object-cover object-[50%_20%] scale-90 grayscale contrast-105 brightness-95"
           />
 
           {/* heavy vignette */}
