@@ -124,6 +124,99 @@ body::before {
   z-index: 9999;
 }
 
+/* ========= Floating Ash ========= */
+
+.floating-ash {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ash-particle {
+  position: absolute;
+  top: -3vh;
+  left: var(--ash-x);
+  width: var(--ash-size);
+  height: calc(var(--ash-size) * var(--ash-stretch));
+  border-radius: 70% 30% 62% 38% / 35% 65% 28% 72%;
+  clip-path: polygon(16% 4%, 88% 22%, 72% 92%, 8% 68%);
+  background: var(--ash-tone);
+  opacity: 0;
+  filter: blur(var(--ash-blur));
+  box-shadow: 0 0 1px rgba(235, 226, 210, 0.18);
+  animation: ash-fall var(--ash-duration) linear var(--ash-delay) infinite;
+  will-change: transform, opacity;
+}
+
+.ash-particle--rising {
+  top: auto;
+  bottom: -3vh;
+  animation-name: ash-rise;
+}
+
+@keyframes ash-fall {
+  0% {
+    transform: translate3d(0, -3vh, 0) rotate(0deg) scaleX(0.45);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: var(--ash-opacity);
+  }
+
+  48% {
+    transform: translate3d(var(--ash-drift), 50vh, 0) rotate(167deg) scaleX(1);
+    opacity: calc(var(--ash-opacity) * 0.65);
+  }
+
+  70% {
+    transform: translate3d(calc(var(--ash-drift) * -0.4), 74vh, 0) rotate(246deg) scaleX(0.28);
+    opacity: var(--ash-opacity);
+  }
+
+  88% {
+    opacity: var(--ash-opacity);
+  }
+
+  100% {
+    transform: translate3d(calc(var(--ash-drift) * 0.3), 106vh, 0) rotate(380deg) scaleX(0.75);
+    opacity: 0;
+  }
+}
+
+@keyframes ash-rise {
+  0% {
+    transform: translate3d(0, 3vh, 0) rotate(0deg) scaleX(0.5);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: calc(var(--ash-opacity) * 0.75);
+  }
+
+  42% {
+    transform: translate3d(calc(var(--ash-drift) * -0.6), -38vh, 0) rotate(-126deg) scaleX(1);
+  }
+
+  68% {
+    transform: translate3d(var(--ash-drift), -66vh, 0) rotate(-238deg) scaleX(0.25);
+    opacity: var(--ash-opacity);
+  }
+
+  100% {
+    transform: translate3d(calc(var(--ash-drift) * -0.25), -106vh, 0) rotate(-360deg) scaleX(0.8);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-ash {
+    display: none;
+  }
+}
+
 /* ========= OCCULT DICTIONARY ========= */
 
 .occult-section {

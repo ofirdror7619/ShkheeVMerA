@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Parallax } from "react-scroll-parallax";
 import Navbar from "@/components/Navbar";
+import FloatingAsh from "@/components/FloatingAsh";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 60 },
@@ -95,6 +95,7 @@ export default function Home() {
 
   return (
     <main className="bg-black text-gray-400 overflow-x-hidden">
+      <FloatingAsh />
       {/* ================= HERO ================= */}
       <section className="hero-section group relative h-screen min-h-[100svh] flex items-center justify-center text-center">
         <Image
@@ -120,7 +121,7 @@ export default function Home() {
               Ritualistic Black Metal from Israel
             </p>
             <p className="text-xs uppercase tracking-[0.42em] text-red-200/70 sm:text-sm">
-              Occult / Ritual / Darkness
+              Occult / Ritual / Damnation
             </p>
             <p className="mx-auto max-w-[90vw] text-lg italic text-white/85 sm:text-2xl">
               &quot;Beyond the Fifth Gate, there is no return.&quot;
@@ -335,17 +336,19 @@ export default function Home() {
       >
         <h2 className="text-3xl text-white text-center mb-12 sm:text-4xl sm:mb-16 lg:text-5xl lg:mb-20">Gallery</h2>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-4 sm:gap-6">
           {[
-            { id: "g1", src: "/The Black Exodus - Album Art.png" },
             { id: "g3", src: rotatingGalleryLogos[0] },
             { id: "g2", src: rotatingGalleryLogos[1] },
+            { id: "g1", src: "/The Black Exodus - Album Art.png" },
+            { id: "studio", src: "/studio.png" },
+            { id: "book", src: "/book.png" },
           ].map((img) => {
             const galleryButton = (
               <button
                 type="button"
                 onClick={() => openGalleryImage(img.src)}
-                className="relative h-[260px] w-full overflow-hidden group cursor-pointer sm:h-[320px] lg:h-[420px]"
+                className="relative h-[220px] w-full overflow-hidden group cursor-pointer sm:h-[380px] lg:h-[500px]"
                 aria-label="Open gallery image"
               >
                 <Image
@@ -358,16 +361,8 @@ export default function Home() {
               </button>
             );
 
-            if (img.id === "g1") {
-              return (
-                <Parallax key={img.id} speed={-5} easing="easeOutQuad">
-                  {galleryButton}
-                </Parallax>
-              );
-            }
-
             return (
-              <div key={img.id}>
+              <div className={img.id === "book" ? "col-span-2" : ""} key={img.id}>
                 {galleryButton}
               </div>
             );
